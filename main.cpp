@@ -6,5 +6,5 @@ int main() {
 	
 	int edad = 19;
 	
-	return edad;
+	return 2;
 }
