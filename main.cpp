@@ -1,37 +1,59 @@
 
-#include<iostream>
-#include<stdlib.h>
-#include<string.h>
-#include<fstream>
+#include <iostream>
+#include <sstream>
+#include <fstream>
+#define NOMBRE_ARCHIVO "Palabras.csv"
 using namespace std;
 
-void lectura();
+struct Palabra {
+	string PalEs;
+	string PalIt;
+	string PalIn;
+	string PalFr;
+	string PalDe;
+} Pal[51];
 
-int main(){
-	lectura();
-	
-	system("pause");
-	return 0;
-}
+int x = 0;
 
-void lectura(){
-	ifstream archivo;
-	string nombreArchivo,texto;
+int main()
+{
 	
-	cout<<"Digite el nombre o la ubicacion del archivo o fichero: ";
-	getline(cin,nombreArchivo);
-	
-	archivo.open(nombreArchivo.c_str(),ios::in); //Abrimos el archivo en modo lectura
-	
-	if(archivo.fail()){
-		cout<<"No se pudo abrir el archivo";
-		exit(1);
-	}
-	
-	while(!archivo.eof()){ //mientras no sea final del archivo
-		getline(archivo,texto);
-		cout<<texto<<endl;
-	}
-	
-	archivo.close(); //Cerramos el archivo
+    ifstream archivo(NOMBRE_ARCHIVO);
+    string linea;
+    char delimitador = ',';
+    // Leemos la primer línea para descartarla, pues es el encabezado
+    getline(archivo, linea);
+    // Leemos todas las líneas
+    while (getline(archivo, linea))
+    {
+
+        stringstream stream(linea); // Convertir la cadena a un stream
+        string espanol, italiano, ingles, frances, aleman;
+        // Extraer todos los valores de esa fila
+        getline(stream, espanol, delimitador);
+        getline(stream, italiano, delimitador);
+        getline(stream, ingles, delimitador);
+        getline(stream, frances, delimitador);
+        getline(stream, aleman, delimitador);
+		
+		Pal[x].PalEs = espanol;
+		Pal[x].PalIt = italiano;
+		Pal[x].PalIn = ingles;
+		Pal[x].PalFr = frances;
+		Pal[x].PalDe = aleman;
+		
+		// Imprimir
+        cout << "==================" << endl;
+        cout << "Español:  " << Pal[x].PalEs << endl;
+        cout << "Italiano: " << Pal[x].PalIt << endl;
+        cout << "Ingles:   " << Pal[x].PalIn << endl;
+        cout << "Frances:  " << Pal[x].PalFr << endl;
+        cout << "Aleman:   " << Pal[x].PalDe << endl;
+		
+		x = x + 1;
+		
+        
+    }
+
+    archivo.close();
 }

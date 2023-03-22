@@ -1,0 +1,55 @@
+  Español      Italiano     Ingles      Frances      Aleman
+ 1Hola         Ciao         Hello       Salut        Hallo
+ 2mama         madre        mother      maman        Mutter
+ 3papa         Papà         dad         papa         Papa
+ 4tu           Voi          you         toi          Du
+ 5amor         Amore        love        amour        Liebe
+ 6casa         casa         home        maison       heim
+ 7tienda       negozio      store       boutique     speichern
+ 8habilidad    capacità     ability     capacité     Fähigkeit
+ 9matematica   matematica   math        mathématiquesMathematik
+                                        la
+10programacionprogrammazioneprogrammingprogrammationProgrammierung
+11estadistica statistiche   statistics  statistiques Statistiken
+12metodos     Metodi        METHODS Méthodes         Methoden
+13numericos   numeri        numerals    chiffres     Ziffern
+14comida      pasto         meal        repas        Mahlzeit
+15perro       cane          dog         chien        Hund
+16gato        gatto         cat         chat         Katze
+17teclado     tastiera      keyboard    clavier      Klaviatur
+18raton       topo          mouse       souris       Maus
+19libreria    libreria      bookshop    librairie    Buchgeschäft
+20instalar    installare    install     Installer    Installieren
+21escritorio  scrivania     desk        bureau       Schreibtisch
+22formato     Formato       Format      Format       Format
+23celda       cellula       cell        cellule      Zelle
+24primera     Primo         first       première     Erste
+25condicional condizionale  conditional conditionnel bedingt
+26pantalla    schermo       screen      filtrer      Bildschirm
+27ventilador  fan           fan         ventilateur  Fan
+28telefono    telefono      phone       téléphone    Telefon
+                                        téléphone
+29celular     cellulare     cell phone portable      Handy
+30cuchara     cucchiaio     spoon       cuillère     Löffel
+31taza        tazza         cup         tasse        Tasse
+32anillo      squillo       ring        anneau       Ring
+33compromiso impegno        commitment engagement Engagement
+34boda        nozze         wedding     mariage      Hochzeit
+35blanco      bianco        white       blanc        Weiss
+36pastel      torta         cake        gâteau       Kuchen
+37turron      torrone       nougat      nougat       Nougat
+38chocolate   cioccolato    chocolate   chocolat     Schokolade
+39vainilla    vaniglia      vanilla     vanille      Vanille
+              crema
+40flan        pasticciera   custard     Crème        Pudding
+41sillon      poltrona      armchair    fauteuil     Sessel
+42calendario  calendario    calendar    calendrier   Kalender
+43botella     bottiglia     bottle      bouteille    Flasche
+44maquina     macchina      machine     machine      Maschine
+45agua        acqua         water       eau          Wasser
+46lava        lavare        wash        laver        waschen
+47juego       gioco         game        jeu          Spiel
+48videojuego video gioco    videogame jeu vidéo      Videospiel
+49compuesta composto        compound composé         Verbindung
+50palabra     parola        word        mot          Wort
+
