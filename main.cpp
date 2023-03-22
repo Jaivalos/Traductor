@@ -1,10 +1,37 @@
-#include <iostream>
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+#include<iostream>
+#include<stdlib.h>
+#include<string.h>
+#include<fstream>
+using namespace std;
 
-int main() {
+void lectura();
+
+int main(){
+	lectura();
 	
-	int edad = 19;
+	system("pause");
+	return 0;
+}
+
+void lectura(){
+	ifstream archivo;
+	string nombreArchivo,texto;
 	
-	return 2;
+	cout<<"Digite el nombre o la ubicacion del archivo o fichero: ";
+	getline(cin,nombreArchivo);
+	
+	archivo.open(nombreArchivo.c_str(),ios::in); //Abrimos el archivo en modo lectura
+	
+	if(archivo.fail()){
+		cout<<"No se pudo abrir el archivo";
+		exit(1);
+	}
+	
+	while(!archivo.eof()){ //mientras no sea final del archivo
+		getline(archivo,texto);
+		cout<<texto<<endl;
+	}
+	
+	archivo.close(); //Cerramos el archivo
 }
