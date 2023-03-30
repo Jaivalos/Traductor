@@ -124,20 +124,25 @@ void busqueda(int origen, int destino, string palabra){
 	if(encontrado == true){
 		if(destino == 1){
 			cout << "Espanol:  " << Pal[y].PalEs << endl;
+			encontrado=false;
 		}else if(destino == 2){
 			cout << "Italiano: " << Pal[y].PalIt << endl;
+			encontrado=false;
 		}else if(destino == 3){
 			cout << "Ingles:   " << Pal[y].PalIn << endl;
+			encontrado=false;
 		}else if(destino == 4){
 			cout << "Frances:  " << Pal[y].PalFr << endl;
+			encontrado=false;
 		}else if(destino == 5){
 			cout << "Aleman:   " << Pal[y].PalDe << endl;
-		}else{
+			encontrado=false;
+		}
+	}else{
 			cout<<"La palabra no existe!!!"<<endl;
 			encontrado=false;
 		}
 	}
-}
 
 int main() {
 	
