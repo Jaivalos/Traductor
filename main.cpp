@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <conio.h>
 #define NOMBRE_ARCHIVO "Palabras.csv"
 
 using namespace std;
@@ -67,6 +68,7 @@ void reporte(){
 }
 
 int idioma_origen(){
+	system("cls");
 	int op;
 	cout<<"------\n Idioma de Origen:\n1. Espanol \n2. Italiano \n3. Ingles \n4. Frances \n5. Aleman \n(Escriba el numero asociado) \n------"<<endl;
 	cin >> op;
@@ -74,13 +76,14 @@ int idioma_origen(){
 }
 
 int idioma_destino(){
+	system("cls");
 	int op;
 	cout<<"------\n Idioma de Destino: \n1. Espanol \n2. Italiano \n3. Ingles \n4. Frances \n5. Aleman \n(Escriba el numero asociado) \n------"<<endl;
 	cin >> op;
 	return op;
 }
 
-string busqueda(int origen, int destino, string palabra){
+void busqueda(int origen, int destino, string palabra){
 	if(origen == 1){
 		for(y=0; y<=50; y++) {
 			if(palabra==Pal[y].PalEs) {
@@ -152,7 +155,7 @@ int main() {
 				cout<<"------ Ingrese una palabra ------"<<endl;
 				cin>>palabra;
 				
-				string traduccion = busqueda(origen, destino, palabra);
+				busqueda(origen, destino, palabra);
 				
 				cout<<endl<<endl<<"1 = Traducir una nueva palabra \n2 = Volver al menu principal"<<endl;
 				cin>>f;
