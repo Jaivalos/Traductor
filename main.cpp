@@ -2,6 +2,9 @@
 #include <sstream>
 #include <fstream>
 #include <conio.h>
+#include <windows.h>
+#include <cstdio>
+#include <MMsystem.h>
 #define NOMBRE_ARCHIVO "Palabras.csv"
 
 using namespace std;
@@ -10,6 +13,7 @@ int x = 0;
 int retorno = 0,f,y,temp;
 string palabra;
 bool encontrado=false;
+LPCSTR ruta_lpcstr;
 
 struct Palabra {
 	string PalEs;
@@ -17,12 +21,12 @@ struct Palabra {
 	string PalIn;
 	string PalFr;
 	string PalDe;
-} Pal[51];
+} Pal[101];
 
 void CargarDatos() {
 	ifstream archivo(NOMBRE_ARCHIVO);
 	string linea;
-	char delimitador = ',';
+	char delimitador = ';';
 	while (getline(archivo, linea)) {
 
 		stringstream stream(linea); // Convertir la cadena a un stream
@@ -56,7 +60,7 @@ int menu(){
 }
 
 void reporte(){
-	for(x=0; x<=50; x++) {
+	for(x=0; x<=100; x++) {
 		// Imprimir
 		cout << "==================" << endl;
 		cout << "Espanol:  " << Pal[x].PalEs << endl;
@@ -85,35 +89,35 @@ int idioma_destino(){
 
 void busqueda(int origen, int destino, string palabra){
 	if(origen == 1){
-		for(y=0; y<=50; y++) {
+		for(y=0; y<=100; y++) {
 			if(palabra==Pal[y].PalEs) {
 				encontrado=true;
 				break;
 			}
 		}
 	}else if(origen == 2){
-		for(y=0; y<=50; y++) {
+		for(y=0; y<=100; y++) {
 			if(palabra==Pal[y].PalIt) {
 				encontrado=true;
 				break;
 			}
 		}
 	}else if(origen == 3){
-		for(y=0; y<=50; y++) {
+		for(y=0; y<=100; y++) {
 			if(palabra==Pal[y].PalIn) {
 				encontrado=true;
 				break;
 			}
 		}
 	}else if(origen == 4){
-		for(y=0; y<=50; y++) {
+		for(y=0; y<=100; y++) {
 			if(palabra==Pal[y].PalFr) {
 				encontrado=true;
 				break;
 			}
 		}
 	}else if(origen == 5){
-		for(y=0; y<=50; y++) {
+		for(y=0; y<=100; y++) {
 			if(palabra==Pal[y].PalDe) {
 				encontrado=true;
 				break;
@@ -123,25 +127,53 @@ void busqueda(int origen, int destino, string palabra){
 	
 	if(encontrado == true){
 		if(destino == 1){
+			
 			cout << "Espanol:  " << Pal[y].PalEs << endl;
+			string ruta = "C:\\dic\\es\\"; ruta = ruta.append(Pal[y].PalEs); ruta = ruta.append(".wav");
+			ruta_lpcstr = ruta.c_str();
+			cout << ruta;
 			encontrado=false;
+		
 		}else if(destino == 2){
+		
 			cout << "Italiano: " << Pal[y].PalIt << endl;
+			string ruta = "C:\\dic\\it\\"; ruta = ruta.append(Pal[y].PalIt); ruta = ruta.append(".wav");
+			ruta_lpcstr = ruta.c_str();
+			cout << ruta;
 			encontrado=false;
+		
 		}else if(destino == 3){
+			
 			cout << "Ingles:   " << Pal[y].PalIn << endl;
+			string ruta = "C:\\dic\\in\\"; ruta = ruta.append(Pal[y].PalIn); ruta = ruta.append(".wav");
+			ruta_lpcstr = ruta.c_str();
+			cout << ruta;
 			encontrado=false;
+			
 		}else if(destino == 4){
+			
 			cout << "Frances:  " << Pal[y].PalFr << endl;
+			string ruta = "C:\\dic\\fr\\"; ruta = ruta.append(Pal[y].PalFr); ruta = ruta.append(".wav");
+			ruta_lpcstr = ruta.c_str();
+			cout << ruta;		
 			encontrado=false;
+		
 		}else if(destino == 5){
+			
 			cout << "Aleman:   " << Pal[y].PalDe << endl;
+			string ruta = "C:\\dic\\de\\"; ruta = ruta.append(Pal[y].PalDe); ruta = ruta.append(".wav");
+			ruta_lpcstr = ruta.c_str();
+			cout << ruta;
 			encontrado=false;
+		
 		}
 	}else{
 			cout<<"La palabra no existe!!!"<<endl;
 			encontrado=false;
 		}
+		
+	PlaySound(ruta_lpcstr,NULL,SND_SYNC);
+		
 	}
 
 int main() {
