@@ -5,6 +5,9 @@
 #include <windows.h>
 #include <cstdio>
 #include <MMsystem.h>
+#include<stdio.h>
+#include "colors.h"
+
 #define NOMBRE_ARCHIVO "Palabras.csv"
 
 using namespace std;
@@ -52,29 +55,40 @@ void CargarDatos() {
 int menu(){
 	int op;
 	system("cls");
-	cout<<"1= Traducir palabra"<<endl;
-	cout<<"2= Reporte"<<endl;
-	cout<<"3= Salir"<<endl;
-	cin>>op;
+	
+	cout << "|----------------------------------------------------------\n|\n|\n|";      
+	
+	cout << LGREEN << "                TRADUCTOR DE PALABRAS "<<endl;
+	cout <<WHITE<< "|\n|                ----------------------\n|\n|\n";
+	
+	
+	cout<<"|      1. Traducir palabra"<<endl;
+	cout<<"|      2. Reporte"<<endl;
+	cout<<"|      3. Salir\n|\n|"<<endl;
+	
+	cout<<"|      Ingrese una opción: ";cin>>op;
+	
+	cout << "|\n|\n|\n|----------------------------------------------------------";
 	return op;	
 }
 
 void reporte(){
 	for(x=0; x<=100; x++) {
 		// Imprimir
-		cout << "==================" << endl;
-		cout << "Espanol:  " << Pal[x].PalEs << endl;
-		cout << "Italiano: " << Pal[x].PalIt << endl;
-		cout << "Ingles:   " << Pal[x].PalIn << endl;
-		cout << "Frances:  " << Pal[x].PalFr << endl;
-		cout << "Aleman:   " << Pal[x].PalDe << endl;
+		cout << "-----------------------" << endl;
+		cout << "		Espanol :   "  << Pal[x].PalEs << endl;
+		cout << "		Italiano:   "  << Pal[x].PalIt << endl;
+		cout << "		Ingles  :   "  << Pal[x].PalIn << endl;
+		cout << "		Frances :   "  << Pal[x].PalFr << endl;
+		cout << "		Aleman  :   "  << Pal[x].PalDe << endl;
+		cout << "-----------------------" << endl;
 	}
 }
 
 int idioma_origen(){
 	system("cls");
 	int op;
-	cout<<"------\n Idioma de Origen:\n1. Espanol \n2. Italiano \n3. Ingles \n4. Frances \n5. Aleman \n(Escriba el numero asociado) \n------"<<endl;
+	cout<<"------------------------------------\n\n     Idioma de Origen:\n     1. Espanol \n     2. Italiano \n     3. Ingles \n     4. Frances \n     5. Aleman \n     (Escriba el numero asociado) \n\n------------------------------------"<<endl;
 	cin >> op;
 	return op;
 }
@@ -82,7 +96,7 @@ int idioma_origen(){
 int idioma_destino(){
 	system("cls");
 	int op;
-	cout<<"------\n Idioma de Destino: \n1. Espanol \n2. Italiano \n3. Ingles \n4. Frances \n5. Aleman \n(Escriba el numero asociado) \n------"<<endl;
+	cout<<"------------------------------------\n\n     Idioma de Destino: \n     1. Espanol \n     2. Italiano \n     3. Ingles \n     4. Frances \n     5. Aleman \n     (Escriba el numero asociado) \n\n------------------------------------"<<endl;
 	cin >> op;
 	return op;
 }
@@ -128,47 +142,48 @@ void busqueda(int origen, int destino, string palabra){
 	if(encontrado == true){
 		if(destino == 1){
 			
-			cout << "Espanol:  " << Pal[y].PalEs << endl;
+			cout << LGREEN << "Espanol:  " << Pal[y].PalEs << endl;
 			string ruta = "C:\\dic\\es\\"; ruta = ruta.append(Pal[y].PalEs); ruta = ruta.append(".wav");
 			ruta_lpcstr = ruta.c_str();
-			cout << ruta;
+			cout <<WHITE<< ruta;
 			encontrado=false;
 		
 		}else if(destino == 2){
 		
-			cout << "Italiano: " << Pal[y].PalIt << endl;
+			cout <<LGREEN << "Italiano: " << Pal[y].PalIt << endl;
 			string ruta = "C:\\dic\\it\\"; ruta = ruta.append(Pal[y].PalIt); ruta = ruta.append(".wav");
 			ruta_lpcstr = ruta.c_str();
-			cout << ruta;
+			cout <<WHITE<< ruta;
 			encontrado=false;
 		
 		}else if(destino == 3){
 			
-			cout << "Ingles:   " << Pal[y].PalIn << endl;
+			cout <<LGREEN << "Ingles:   " << Pal[y].PalIn << endl;
 			string ruta = "C:\\dic\\in\\"; ruta = ruta.append(Pal[y].PalIn); ruta = ruta.append(".wav");
 			ruta_lpcstr = ruta.c_str();
-			cout << ruta;
+			cout <<WHITE<< ruta;
 			encontrado=false;
 			
 		}else if(destino == 4){
 			
-			cout << "Frances:  " << Pal[y].PalFr << endl;
+			cout <<LGREEN << "Frances:  " << Pal[y].PalFr << endl;
 			string ruta = "C:\\dic\\fr\\"; ruta = ruta.append(Pal[y].PalFr); ruta = ruta.append(".wav");
 			ruta_lpcstr = ruta.c_str();
-			cout << ruta;		
+			cout <<WHITE<< ruta;		
 			encontrado=false;
 		
 		}else if(destino == 5){
 			
-			cout << "Aleman:   " << Pal[y].PalDe << endl;
+			cout <<LGREEN << "Aleman:   " << Pal[y].PalDe << endl;
 			string ruta = "C:\\dic\\de\\"; ruta = ruta.append(Pal[y].PalDe); ruta = ruta.append(".wav");
 			ruta_lpcstr = ruta.c_str();
-			cout << ruta;
+			cout <<WHITE<< ruta;
 			encontrado=false;
 		
 		}
 	}else{
-			cout<<"La palabra no existe!!!"<<endl;
+			cout<<RED<<"\n¡¡La palabra no existe!!!"<<endl;
+			cout << WHITE << "";
 			encontrado=false;
 		}
 		
@@ -177,6 +192,8 @@ void busqueda(int origen, int destino, string palabra){
 	}
 
 int main() {
+	
+	
 	
 	CargarDatos();
 
@@ -189,12 +206,13 @@ int main() {
 				
 				system("cls");
 				
-				cout<<"------ Ingrese una palabra ------"<<endl;
+				cout<<"---------------------------------------------------\n\n		Ingrese una palabra\n\n             -------------------------"<<ORANGE<<endl;
 				cin>>palabra;
 				
 				busqueda(origen, destino, palabra);
 				
-				cout<<endl<<endl<<"1 = Traducir una nueva palabra \n2 = Volver al menu principal"<<endl;
+				cout<<endl<<endl<< CYAN<<"	1 = Traducir una nueva palabra \n	2 = Volver al menu principal"<<endl;
+				cout<<WHITE<<"";
 				cin>>f;
 			} while(f!=2);
 		}
